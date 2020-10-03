@@ -27,15 +27,23 @@ public class ResearchGroups {
             return;
         }
 
-        Iterator itr = t1.getBegin();
+        t1.resetItr();
 
+        System.out.print(name + " is found in group: ");
         while (t1.hasNext()) {
-            System.out.print(name + " is found in group: ");
+
             Integer[] pos = t1.getNext();
-            System.out.println((pos[0] + 1) + ", ");
+            System.out.print((pos[0] + 1) + ", ");
         }
+        System.out.println();
 
-
+        t1.resetItr();
+        while (t1.hasNext()) {
+            Integer[] pos = t1.getNext();
+            if (pos[1] == 0) {
+                System.out.println(name + " is the group leader of group: " + (pos[0] + 1));
+            }
+        }
 
 
     }
@@ -69,7 +77,7 @@ public class ResearchGroups {
         // ResearchGroups.searchMember(groups, "John Doe");
         // ResearchGroups.sortGroups(groups);
 
-        searchMember(groups, "Ben");
+        searchMember(groups, "Mary");
     }
 
 }

@@ -36,9 +36,8 @@ public class Locator {
     /**
      * get iterator of the coordinates
      */
-    public Iterator getBegin() {
+    public void resetItr() {
         itr = coordinate.iterator();
-        return itr;
     }
 
     /**
@@ -68,17 +67,4 @@ public class Locator {
     }
 
 
-    public static void main(String[] args) {
-        Locator t1 = new Locator("TestName");
-        t1.addPosition(1 ,2);
-        t1.addPosition(1 ,3);
-        t1.addPosition(1 ,4);
-
-
-        // while(it.hasNext()) {
-        //     System.out.println(t1.getNext()[1]);
-        // }
-
-
-    }
 }
