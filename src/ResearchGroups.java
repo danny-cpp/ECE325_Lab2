@@ -22,16 +22,22 @@ public class ResearchGroups {
         Locator t1 = multiArrayTraverse(groups, name);
 
         // If cannot found subject, state it and exit
-        if (!t1.exist()) {
+        if (t1.notExist()) {
             System.out.println("Member does not exist in the list");
             return;
         }
 
         Iterator itr = t1.getBegin();
+
         while (t1.hasNext()) {
+            System.out.print(name + " is found in group: ");
             Integer[] pos = t1.getNext();
-            System.out.println("Group is " + pos[0] + ", position is: " + pos[1]);
+            System.out.println((pos[0] + 1) + ", ");
         }
+
+
+
+
     }
 
     /**
@@ -62,10 +68,8 @@ public class ResearchGroups {
         // ResearchGroups.searchMember(groups, "Lucy");
         // ResearchGroups.searchMember(groups, "John Doe");
         // ResearchGroups.sortGroups(groups);
-        multiArrayTraverse(groups, "a");
 
-        System.out.println(groups[0][1]);
-        searchMember(groups, "Bob");
+        searchMember(groups, "Ben");
     }
 
 }

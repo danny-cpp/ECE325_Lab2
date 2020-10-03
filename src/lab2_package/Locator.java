@@ -54,7 +54,7 @@ public class Locator {
      *
      * @return Status if the object location exist or not
      */
-    public boolean exist() {
+    public boolean notExist() {
         return (coordinate.size() == 0);
     }
 
@@ -74,10 +74,10 @@ public class Locator {
         t1.addPosition(1 ,3);
         t1.addPosition(1 ,4);
 
-        Iterator it = t1.getBegin();
-        while(it.hasNext()) {
-            System.out.println(t1.getNext()[1]);
-        }
+
+        // while(it.hasNext()) {
+        //     System.out.println(t1.getNext()[1]);
+        // }
 
 
     }
