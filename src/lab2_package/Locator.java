@@ -2,6 +2,7 @@ package lab2_package;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Store locations of an object in a matrix using dynamic array
@@ -9,7 +10,7 @@ import java.util.Iterator;
  */
 public class Locator {
     protected String name;
-    protected ArrayList<Integer[]> coordinate = new ArrayList<Integer[]>();
+    protected List<Integer[]> coordinate = new ArrayList<Integer[]>();
     protected Iterator itr;
 
     /**
