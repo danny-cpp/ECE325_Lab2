@@ -1,4 +1,4 @@
-package lab2_package;
+package TwoDimensionalArray;
 
 /**
  * Package to work with 2D string array

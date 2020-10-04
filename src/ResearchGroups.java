@@ -1,9 +1,7 @@
-import lab2_package.Locator;
+import TwoDimensionalArray.Locator;
+import array_length_sort.MergeSortArrayLength;
 
-import java.util.Arrays;
-import java.util.Iterator;
-
-import static lab2_package.MultiArray.multiArrayTraverse;
+import static TwoDimensionalArray.MultiArray.multiArrayTraverse;
 
 /**
  * Lab 2: Debugging with an IDE and Prefix Tree) <br />
@@ -27,6 +25,7 @@ public class ResearchGroups {
             return;
         }
 
+        // Set the iterator to start.
         t1.resetItr();
 
         System.out.print(name + " is found in group: ");
@@ -53,7 +52,7 @@ public class ResearchGroups {
      * @param groups    (<code>String[][]</code>) The 2D array of groups to be sorted
      */
     public static void sortGroups(String[][] groups) {
-        // TODO: Lab 2 Part 1-2 -- sort and print the results here. Reuse your heapsort
+        MergeSortArrayLength
 
     }
 

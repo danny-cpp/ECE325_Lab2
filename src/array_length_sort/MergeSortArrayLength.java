@@ -6,6 +6,37 @@ import java.util.*;
 public class MergeSortArrayLength extends MergeSort {
 
     /**
+     * This function takes in a 2 dimension array and sort the rows by length.
+     * It implements custom mergesort from lab1.
+     * @param table
+     * @return A sorted 2D array by row length
+     */
+    public static Object[][] sortArrayLength(Object[][] table) {
+        Map<Integer, List<Integer>> m = sortMap(lengthHash(table));
+
+        Object[][] result = new Object[getSizeDuplicate(m)][];
+
+        // We iterate through the hashmap and map it to our 2D array
+        Iterator it = m.entrySet().iterator();
+        int index1 = 0;
+
+        while (it.hasNext()) {
+            Map.Entry map_ele = (Map.Entry)it.next();
+            List<Integer> rows_with_equal_length = (List<Integer>)map_ele.getValue();
+
+            // We iterate through a block and append to final 2D array
+            for (Integer x: rows_with_equal_length) {
+                result[index1] = table[x];
+                index1++;
+            }
+        }
+
+        return result;
+
+    }
+
+
+    /**
      * Hashing the length of each row of a 2D array into a dictionary (each key
      * can contains multiple values).
      *
@@ -38,6 +69,24 @@ public class MergeSortArrayLength extends MergeSort {
         return mp;
     }
 
+    /**
+     * Count total number of elements in a duplicate hashmap
+     * @param m
+     * @return count
+     */
+    protected static Integer getSizeDuplicate(Map<Integer, List<Integer>> m) {
+        Iterator it = m.entrySet().iterator();
+        int counter = 0;
+
+        while (it.hasNext()) {
+            Map.Entry map_ele = (Map.Entry)it.next();
+            List<Integer> row = (List<Integer>)map_ele.getValue();
+            counter += row.size();
+        }
+
+        return counter;
+    }
+
     // Now we simply sort the length (which is the key) and create a new LinkedHM (which
     // preserves the order). We will enforce return type here instead of going for
     // polymorphism since we need the order
@@ -45,8 +94,7 @@ public class MergeSortArrayLength extends MergeSort {
      * Take a hash map and sort it by the keys
      * @return A sorted LinkedHashMap by the keys
      */
-    public static Object[][] ArrayLengthSort(Object[][] arr) {
-        Map<Integer, List<Integer>> input = lengthHash(arr);
+    public static LinkedHashMap<Integer, List<Integer>> sortMap(Map<Integer, List<Integer>> input) {
 
         // Create an array of key from the input map
         Set<Integer> keys = input.keySet();
@@ -65,57 +113,12 @@ public class MergeSortArrayLength extends MergeSort {
         // Sort the array using our Lab1 function
         key_arr_primitive = sort(key_arr_primitive);
 
-        // Create a return list
-        List<Object[]> l = new LinkedList<>();
-
-        // Follow the order in the key array, we append the final result with arrays
-        // from the original 2D array
+        LinkedHashMap<Integer, List<Integer>> result = new LinkedHashMap<>();
         for (int i = 0; i < key_arr_primitive.length; i++) {
-            List l_retrieved = input.get(key_arr_primitive[i]);
-            for (Object x: l_retrieved) {
-                l.add(arr[(Integer) x]);
-            }
+            result.put(key_arr_primitive[i], input.get(key_arr_primitive[i]));
         }
 
-        // Converting the linked list to array
-        Object[][] final_result = new Integer[l.size()][];
-        for (int i = 0; i < l.size(); i++) {
-            Object[] tmp = l.get(i);
-            final_result[i] = tmp;
-        }
-
-        return final_result;
-    }
-
-
-
-
-    public static void main(String[] args) {
-        String[][] groups = { {"Bob", "Carol", "Eric", "Matt"},             // 0
-                {"Jim", "Lucy", "Terry", "Brenda", "Ben"},    // 1
-                {"Kate", "Jack", "James", "Sydney"},          // 4
-                {"Kate", "Jack", "James", "Sydney"},          // 4
-                {"Kate", "Jack", "James", "Sydney", "Sydney", "Sydney", "Sydney", "Sydney"},          // 4
-                {"Susan", "Brad", "Jim"},                     // 2
-                {"Sue", "Wendy", "Sam"},                      // 3
-
-                {"Mohammad", "Tim", "Kian"},                  // 5
-                {"Emma", "Carol"},                            // 6
-                {"Emma", "Carol"},                            // 6
-                {"Emma", "Carol"},                            // 6
-                {"Emma", "Carol"},                            // 6
-                {"Emma", "Carol"},                            // 6
-                {"Susan", "Brad", "Jim", "Jim", "Jim"},                     // 2
-                {"Sue", "Wendy", "Sam"},                      // 3
-
-                {"Mohammad", "Tim", "Kian"},                  // 5
-                {"Emma", "Carol"},
-                {"Nick", "Osama", "Harry", "Ben"},            // 7
-                {"Mary", "John", "Ricky"} };                  // 8
-
-        MergeSortArrayLength a = new MergeSortArrayLength();
-        Object[][] done = a.ArrayLengthSort(groups);
-
+        return result;
     }
 
 }

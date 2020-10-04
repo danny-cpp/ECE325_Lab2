@@ -1,4 +1,4 @@
-package lab2_package;
+package TwoDimensionalArray;
 
 import java.util.ArrayList;
 import java.util.Iterator;
