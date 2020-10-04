@@ -35,6 +35,25 @@ public class MergeSortArrayLength extends MergeSort {
 
     }
 
+    /**
+     * Print out a 2D array with ascending row length order
+     *
+     * @param res a 2D array
+     */
+    public static void print2DArray(Object[][] res) {
+        int row_len = res.length;
+        for (int i = 0; i < row_len; i++) {
+            System.out.print("[ ");
+
+            // Update the column length since each row may have different column
+            int col_len = res[i].length;
+            for (int j = 0; j < col_len; j++) {
+                System.out.print(res[i][j] + ", ");
+            }
+            System.out.println("]");
+        }
+    }
+
 
     /**
      * Hashing the length of each row of a 2D array into a dictionary (each key

@@ -2,6 +2,9 @@ import TwoDimensionalArray.Locator;
 import array_length_sort.MergeSortArrayLength;
 
 import static TwoDimensionalArray.MultiArray.multiArrayTraverse;
+import static array_length_sort.MergeSort.printArray;
+import static array_length_sort.MergeSortArrayLength.print2DArray;
+import static array_length_sort.MergeSortArrayLength.sortArrayLength;
 
 /**
  * Lab 2: Debugging with an IDE and Prefix Tree) <br />
@@ -52,8 +55,8 @@ public class ResearchGroups {
      * @param groups    (<code>String[][]</code>) The 2D array of groups to be sorted
      */
     public static void sortGroups(String[][] groups) {
-        MergeSortArrayLength
-
+        Object[][] res = sortArrayLength(groups);
+        print2DArray(res);
     }
 
     /**
@@ -71,12 +74,10 @@ public class ResearchGroups {
                               {"Nick", "Osama", "Harry", "Ben"},            // 7
                               {"Mary", "John", "Ricky"} };                  // 8
 
-        // ResearchGroups.searchMember(groups, "Jim");
-        // ResearchGroups.searchMember(groups, "Lucy");
-        // ResearchGroups.searchMember(groups, "John Doe");
-        // ResearchGroups.sortGroups(groups);
-
-        searchMember(groups, "Mary");
+        ResearchGroups.searchMember(groups, "Jim");
+        ResearchGroups.searchMember(groups, "Lucy");
+        ResearchGroups.searchMember(groups, "John Doe");
+        ResearchGroups.sortGroups(groups);
     }
 
 }
