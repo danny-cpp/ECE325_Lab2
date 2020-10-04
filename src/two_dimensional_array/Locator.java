@@ -1,4 +1,4 @@
-package TwoDimensionalArray;
+package two_dimensional_array;
 
 import java.util.ArrayList;
 import java.util.Iterator;

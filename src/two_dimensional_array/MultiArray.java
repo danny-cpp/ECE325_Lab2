@@ -1,4 +1,4 @@
-package TwoDimensionalArray;
+package two_dimensional_array;
 
 /**
  * Package to work with 2D string array

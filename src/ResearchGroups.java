@@ -1,14 +1,14 @@
-import TwoDimensionalArray.Locator;
-import array_length_sort.MergeSortArrayLength;
+import two_dimensional_array.Locator;
 
-import static TwoDimensionalArray.MultiArray.multiArrayTraverse;
-import static array_length_sort.MergeSort.printArray;
+import static two_dimensional_array.MultiArray.multiArrayTraverse;
 import static array_length_sort.MergeSortArrayLength.print2DArray;
 import static array_length_sort.MergeSortArrayLength.sortArrayLength;
 
 /**
  * Lab 2: Debugging with an IDE and Prefix Tree) <br />
  * The {@code ResearchGroup} class uses a 2D array to store the names of group members
+ *
+ * @author Danh Nguyen, ID: 1592873
  */
 
 
@@ -46,8 +46,7 @@ public class ResearchGroups {
                 System.out.println(name + " is the group leader of group: " + (pos[0] + 1));
             }
         }
-
-
+        
     }
 
     /**
